@@ -1,20 +1,17 @@
 /*Simulation for ATM Banking System*/
 #include <iostream>
 #include <conio.h>
-#include <string.h>
-#include "rlutil.h"
+#include "src/rlutil.h"
+#include "src/checkoutATM.h"
 
 int mainMenu();
-int createAccount();
 void loginAccount();
-void exitAccount();
 int startMenu();
 void bankDeposit();
-int checkPassword();
 
 int main(int argc, char const *argv[])
 {
-  rlutil::setColor(rlutil::RED);
+  rlutil::setColor(rlutil::WHITE);
   switch (mainMenu())
   {
   case 1:
@@ -30,7 +27,7 @@ int main(int argc, char const *argv[])
     exitAccount();
     break;
   default:
-
+    error();
     break;
   }
   getch();
@@ -56,90 +53,46 @@ int mainMenu()
   } while (true);
 }
 
-// Create Account
-int createAccount()
-{
-  int age, phone, password;
-  char name[10], address[50];
-  rlutil::cls();
-  rlutil::setColor(rlutil::BLUE);
-  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-  std::cout << "\t\t\t|                Create Account               |" << std::endl;
-  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-  std::cout << "\t\t\t|> Enter your name: ";
-  std::cin >> name;
-  std::cout << "\t\t\t|> Enter your age: ";
-  std::cin >> age;
-  std::cout << "\t\t\t|> Enter your address: ";
-  std::cin >> address;
-  std::cout << "\t\t\t|> Enter your phone number: ";
-  std::cin >> phone;
-  std::cout << "\t\t\t|> Enter your password: ";
-  std::cin >> password;
-  if (age < 18)
-  {
-    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t| You are not old enough to create an account |" << std::endl;
-    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t";
-    getch();
-  }
-  else
-  {
-    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t| Account Created                             |" << std::endl;
-    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t";
-    getch();
-  }
-  return password;
-}
-
 void loginAccount()
 {
-  checkPassword();
-}
-
-void exitAccount()
-{
-  rlutil::cls();
-  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-  std::cout << "\t\t\t|                  Thank You                  |" << std::endl;
-  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-  getch();
-  exit(0);
-}
-
-int checkPassword()
-{
-  int password;
-  for (int i = 0; i < 4; i++)
+  const int npassword = 1234;
+  if (checkPassword() == npassword)
   {
+    rlutil::cls();
+    rlutil::setColor(rlutil::BROWN);
+    switch (startMenu())
+    {
+    case 1:
+
+      break;
+    case 2:
+
+      break;
+    case 3:
+
+      break;
+    default:
+      error();
+      break;
+    }
   }
 }
+
 // Login menu for ATM
 int startMenu()
 {
   do
   {
     int option;
-    rlutil::setBackgroundColor(rlutil::BLACK);
-    std::cout << "\t\t+----------------------------+" << std::endl;
-    std::cout << "\t\t|> 1 Bank-Deposit:           |" << std::endl;
-    std::cout << "\t\t|> 2 Cash=Out:               |" << std::endl;
-    std::cout << "\t\t|> 3 Query:                  |" << std::endl;
-    std::cout << "\t\t+----------------------------+" << std::endl;
-    std::cout << "\t\t|>";
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|                   Process                   |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|> 1. Bank-Deposit:                           |" << std::endl;
+    std::cout << "\t\t\t|> 2. Cash-Out:                               |" << std::endl;
+    std::cout << "\t\t\t|> 3. Query:                                  |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|> ";
     std::cin >> option;
     return option;
   } while (true);
 } // end startMenu()
-
-void bankDeposit()
-{
-  int amount;
-  rlutil::cls();
-  std::cout << "Bank Deposit" << std::endl;
-  std::cout << "Enter Amount: ";
-  std::cin >> amount;
-}
