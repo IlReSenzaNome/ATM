@@ -1,5 +1,5 @@
 #include "rlutil.h"
-#include <string>
+#include <limits>
 
 void error()
 {
@@ -18,15 +18,20 @@ int createAccount()
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     std::cout << "\t\t\t|                Create Account               |" << std::endl;
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t|> Enter your name: ";
+    std::cout << "\t\t\t|> Enter your name:                           |" << std::endl;
+    rlutil::locate(45, 4);
     std::cin >> name;
-    std::cout << "\t\t\t|> Enter your age: ";
+    std::cout << "\t\t\t|> Enter your age:                            |" << std::endl;
+    rlutil::locate(45, 5);
     std::cin >> age;
-    std::cout << "\t\t\t|> Enter your address: ";
+    std::cout << "\t\t\t|> Enter your address:                        |" << std::endl;
+    rlutil::locate(48, 6);
     std::cin >> address;
-    std::cout << "\t\t\t|> Enter your phone number: ";
+    std::cout << "\t\t\t|> Enter your phone number:                   |" << std::endl;
+    rlutil::locate(54, 7);
     std::cin >> phone;
-    std::cout << "\t\t\t|> Enter your password: ";
+    std::cout << "\t\t\t|> Enter your password:                       |" << std::endl;
+    rlutil::locate(49, 8);
     std::cin >> password;
     if (age < 18)
     {
@@ -66,7 +71,9 @@ int checkPassword()
         rlutil::cls();
         rlutil::setColor(rlutil::WHITE);
         std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-        std::cout << "\t\t\t|> Enter your password: ";
+        std::cout << "\t\t\t|> Enter your password:                       |" << std::endl;
+        std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+        rlutil::locate(49, 2);
         password = 0;
         char ch;
         while ((ch = _getch()) != '\r')

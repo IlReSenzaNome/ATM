@@ -1,2 +1,1 @@
-# Simulation for ATM using cpp lenguages 
-
+# Simulation for ATM using cpp languages
