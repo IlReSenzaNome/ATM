@@ -1,16 +1,16 @@
 /*Simulation for ATM Banking System*/
 #include <iostream>
 #include <conio.h>
-#include <cctype>
 #include <string>
-#include <cstdlib>
 #include "src/rlutil.h"
 #include "src/checkoutATM.h"
 
+// prototypes fuction
 int mainMenu();
 void loginAccount();
 int startMenu();
-int bankDeposit();
+void bankDeposit(int &);
+void cashOut(int &);
 
 int main(int argc, char const *argv[])
 {
@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
   getch();
   return 0;
 }
-
+// Main Menu
 int mainMenu()
 {
   do
@@ -58,20 +58,26 @@ int mainMenu()
     return option;
   } while (true);
 }
-
+// Create Account
 void loginAccount()
 {
   const int npassword = 1234;
-  int option;
+  int option, consultation = 1000;
   if (checkPassword() == npassword)
   {
     rlutil::cls();
-    rlutil::setColor(rlutil::BROWN);
+    rlutil::setColor(rlutil::COLOR::BROWN);
     option = startMenu();
     switch (option)
     {
     case 1:
-      bankDeposit();
+      bankDeposit(consultation);
+      break;
+    case 2:
+      cashOut(consultation);
+      break;
+    case 3:
+      query(consultation);
       break;
     default:
       error();
@@ -79,7 +85,6 @@ void loginAccount()
     }
   }
 }
-
 // Login menu for ATM
 int startMenu()
 {
@@ -100,11 +105,12 @@ int startMenu()
     return object;
   } while (true);
 } // end startMenu()
-
-int bankDeposit()
+// bank deposit
+void bankDeposit(int &consultation)
 {
   // Bank deposit
   rlutil::cls();
+  rlutil::setColor(rlutil::COLOR::GREY);
   double mount;
   std::string check;
   int amount, option;
@@ -132,7 +138,7 @@ int bankDeposit()
       rlutil::cls();
       amount = static_cast<int>(mount);
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-      std::cout << "\t\t\t|Amount: " << amount << "\t\t\t              |" << std::endl;
+      std::cout << "\t\t\t|Amount: " << amount + consultation << "\t\t\t              |" << std::endl;
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     }
     else
@@ -160,6 +166,162 @@ int bankDeposit()
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     }
 
+    break;
+  default:
+    error();
+    break;
+  }
+}
+// Cash out
+void cashOut(int &consultation)
+{
+  // Cash out
+  int option, amount = 0;
+  rlutil::cls();
+  rlutil::setColor(rlutil::COLOR::MAGENTA);
+  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+  std::cout << "\t\t\t|              Cash Out                       |" << std::endl;
+  std::cout << "\t\t\t+------------------------+--------------------+" << std::endl;
+  std::cout << "\t\t\t|> 1. 10                 |            2. 20  <|" << std::endl;
+  std::cout << "\t\t\t|> 3. 40                 |            4. 60  <|" << std::endl;
+  std::cout << "\t\t\t|> 5. 80                 |           6. 100  <|" << std::endl;
+  std::cout << "\t\t\t|> 7. 200                |   8. Other Amount <|" << std::endl;
+  std::cout << "\t\t\t+------------------------+--------------------+" << std::endl;
+  std::cout << "\t\t\t|>                                            |" << std::endl;
+  std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+  rlutil::locate(28, 9);
+  std::cin >> option;
+  switch (option)
+  {
+  case 1:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 10                        |" << std::endl;
+      consultation -= 10;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 2:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 20                        |" << std::endl;
+      consultation -= 20;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 3:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 40                        |" << std::endl;
+      consultation -= 40;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 4:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 60                        |" << std::endl;
+      consultation -= 60;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 5:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 80                        |" << std::endl;
+      consultation -= 80;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 6:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 100                       |" << std::endl;
+      consultation -= 100;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 7:
+    if (consultation > 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: 200                       |" << std::endl;
+      consultation -= 200;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+      error();
+    }
+    break;
+  case 8:
+    rlutil::cls();
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|Enter amount:                                |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    rlutil::locate(40, 2);
+    std::cin >> amount;
+    if (amount == static_cast<int>(amount) && amount >= 10 && static_cast<int>(amount) % 2 != 0 && static_cast<int>(amount) % 5 != 0 || static_cast<int>(amount) % 10 == 0)
+    {
+      rlutil::cls();
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+      std::cout << "\t\t\t|> Money Withdrawn: " << amount << "                       |" << std::endl;
+      consultation -= amount;
+      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else if ((amount % 10 != 0) || (amount < 10) || (amount % 5 == 0))
+    {
+      error();
+    }
+    else
+    {
+      error();
+    }
     break;
   default:
     error();

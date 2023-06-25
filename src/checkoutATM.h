@@ -4,8 +4,20 @@
 void error()
 {
     rlutil::cls();
+    rlutil::setColor(rlutil::COLOR::RED);
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     std::cout << "\t\t\t|                Error Process                |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+}
+
+void query(int &consultation)
+{
+    rlutil::cls();
+    rlutil::setColor(rlutil::COLOR::YELLOW);
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|                Query Process                |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|> total account balance: " << consultation << "$\t\t      |" << std::endl;
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
 }
 
@@ -55,6 +67,7 @@ int createAccount()
 void exitAccount()
 {
     rlutil::cls();
+    rlutil::setColor(rlutil::COLOR::LIGHTBLUE);
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     std::cout << "\t\t\t|                  Thank You                  |" << std::endl;
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
@@ -69,7 +82,7 @@ int checkPassword()
     for (int i = 1; i < 4; i++)
     {
         rlutil::cls();
-        rlutil::setColor(rlutil::WHITE);
+        rlutil::setColor(rlutil::COLOR::GREEN);
         std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
         std::cout << "\t\t\t|> Enter your password:                       |" << std::endl;
         std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
