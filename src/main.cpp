@@ -136,7 +136,7 @@ void bankDeposit(int &consultation)
       rlutil::cls();
       amount = static_cast<int>(mount);
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-      std::cout << "\t\t\t|Amount: " << amount + consultation << "\t\t\t              |" << std::endl;
+      std::cout << "\t\t\t|The money has been deposited                 |" << std::endl;
       successful();
     }
     else
@@ -220,14 +220,9 @@ void cashOut(int &consultation)
     {
       rlutil::cls();
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-      std::cout << "\t\t\t|> Money Withdrawn: " << amount << "                       |" << std::endl;
-      consultation -= amount;
-      std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
-      std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    }
-    else if ((amount % 10 != 0) || (amount < 10) || (amount % 5 == 0))
-    {
-      error();
+      std::cout << "\t\t\t|> Money Withdrawn                            |" << std::endl;
+      animate();
+      successful();
     }
     else
     {

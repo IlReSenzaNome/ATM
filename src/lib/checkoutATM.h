@@ -1,6 +1,29 @@
 #include "rlutil.h"
 #include <limits>
 
+void animate()
+{
+    rlutil::locate(43, 2);
+    int points = 0;
+
+    while (true)
+    {
+        for (int i = 1; i < points; i++)
+        {
+            std::cout << ".";
+        }
+
+        Sleep(1000);
+
+        points++;
+        if (points > 3)
+        {
+            break;
+        }
+    }
+    std::cout << std::endl;
+}
+
 void error()
 {
     rlutil::cls();
@@ -13,7 +36,7 @@ void error()
 void successful()
 {
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
-    std::cout << "\t\t\t|             Successful                      |" << std::endl;
+    std::cout << "\t\t\t|             Successful Process              |" << std::endl;
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
 }
 
