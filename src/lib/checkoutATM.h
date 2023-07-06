@@ -10,6 +10,13 @@ void error()
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
 }
 
+void successful()
+{
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    std::cout << "\t\t\t|             Successful                      |" << std::endl;
+    std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+}
+
 void query(int &consultation)
 {
     rlutil::cls();
@@ -130,5 +137,22 @@ int checkPassword()
             std::cout << "\t\t\t";
             getch();
         }
+    }
+}
+
+void checkcashout(int &consultation, int n)
+{
+    if (consultation > 0)
+    {
+        rlutil::cls();
+        std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+        std::cout << "\t\t\t|> Money Withdrawn: 10                        |" << std::endl;
+        consultation -= n;
+        std::cout << "\t\t\t|> Money Remaining: " << consultation << "    \t\t      |" << std::endl;
+        std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
+    }
+    else
+    {
+        error();
     }
 }
