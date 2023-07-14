@@ -8,7 +8,7 @@ void animate()
 
     while (true)
     {
-        for (int i = 1; i < points; i++)
+        for (int i = 0; i <= points; i++)
         {
             std::cout << ".";
         }
