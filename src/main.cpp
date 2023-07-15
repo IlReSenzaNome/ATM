@@ -131,7 +131,7 @@ void bankDeposit(int &consultation)
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     rlutil::locate(40, 2);
     std::cin >> mount;
-    if (mount == static_cast<int>(mount) && mount >= 10 && static_cast<int>(mount) % 2 != 0 && static_cast<int>(mount) % 5 != 0 || static_cast<int>(mount) % 10 == 0)
+    if (mount == static_cast<int>(mount) && mount >= 10 && static_cast<int>(mount) % 2 != 0 && static_cast<int>(mount) % 5 != 0 && static_cast<int>(mount) % 10 == 0)
     {
       rlutil::cls();
       amount = static_cast<int>(mount);
@@ -171,7 +171,8 @@ void bankDeposit(int &consultation)
 void cashOut(int &consultation)
 {
   // Cash out
-  int option, amount = 0;
+  double amount = 0;
+  int option;
   rlutil::cls();
   rlutil::setColor(rlutil::COLOR::MAGENTA);
   std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
@@ -216,7 +217,7 @@ void cashOut(int &consultation)
     std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
     rlutil::locate(40, 2);
     std::cin >> amount;
-    if (amount == static_cast<int>(amount) && amount >= 10 && static_cast<int>(amount) % 2 != 0 && static_cast<int>(amount) % 5 != 0 || static_cast<int>(amount) % 10 == 0)
+    if ((amount == static_cast<int>(amount) && amount >= 10 && static_cast<int>(amount) % 2 != 0 && static_cast<int>(amount) % 5 != 0 && static_cast<int>(amount) % 10 == 0) || (amount >= 100 && static_cast<int>(amount) % 10 == 0))
     {
       rlutil::cls();
       std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
