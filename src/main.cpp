@@ -65,7 +65,7 @@ void loginAccount()
   if (checkPassword() == npassword)
   {
     rlutil::cls();
-    rlutil::setColor(rlutil::COLOR::BROWN);
+    rlutil::setColor(rlutil::BROWN);
     option = startMenu();
     switch (option)
     {
@@ -174,7 +174,7 @@ void cashOut(int &consultation)
   double amount = 0;
   int option;
   rlutil::cls();
-  rlutil::setColor(rlutil::COLOR::MAGENTA);
+  rlutil::setColor(rlutil::MAGENTA);
   std::cout << "\t\t\t+---------------------------------------------+" << std::endl;
   std::cout << "\t\t\t|              Cash Out                       |" << std::endl;
   std::cout << "\t\t\t+------------------------+--------------------+" << std::endl;
