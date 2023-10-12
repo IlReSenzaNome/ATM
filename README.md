@@ -1,6 +1,6 @@
 # Simulation for ATM using cpp languages 🏧
-## Personal project initial code programing languages 
----
+
+Personal project initial code programing languages 
 
 This project was carried out as an assignment for the programming subject in order to learn how to handle different types of validations and the use of loops that serve to maintain control of programs that require this type of reasoning, taking into account a user experience that helps users stay alert to the data entered into the program.
 
