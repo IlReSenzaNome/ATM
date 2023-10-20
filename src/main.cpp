@@ -2,8 +2,8 @@
 #include <iostream>
 #include <conio.h>
 #include <string>
-#include "lib/rlutil.h"
-#include "lib/checkoutATM.h"
+#include "../lib/rlutil.h"
+#include "../lib/checkoutATM.h"
 
 // prototypes fuction
 int mainMenu();

@@ -1,3 +1,4 @@
 *.exe
 *.md.backup
 *.vscode
+*.out
