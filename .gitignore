@@ -2,3 +2,5 @@
 *.md.backup
 *.vscode
 *.out
+.idea/
+cmake-build-debug/
