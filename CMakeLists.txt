@@ -14,4 +14,5 @@ add_executable(main
         main.cpp
         include/ATM.h
         src/ATM.cpp
-        )
+        src/interfaces.cpp
+        Include/interfaces.h)
